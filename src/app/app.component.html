@@ -22,4 +22,29 @@
   <button (click)="saveForm()" type="submit">Save Form</button>
 
 
+
+
+
+<hr>
+<h2>Search By Name</h2>>
+
+<label>Enter Name</label>
+<input formControlName="searchName"/>
+<br>
+<button (click)="search()">Search</button>
+
+<table>
+
+  <tr *ngFor="let row of result">
+
+    <td>{{row.name}}</td>
+    <td>{{row.emailid}}</td>
+  </tr>
+</table>
+
 </form>
+
+
+
+
+
