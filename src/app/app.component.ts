@@ -49,6 +49,44 @@ export class AppComponent {
 
   }
 
+  editEnabled=false;
+
+  enableUpdate(){
+
+    if(this.editEnabled == false){
+
+      this.editEnabled = true;
+    }else{
+
+      this.editEnabled = false;
+    }
+
+  }
+
+  update(){
+
+    console.log(this.result[0]);
+
+    var pouchform = {
+
+      _id: this.result[0]._id,
+      _rev: this.result[0]._rev,
+      name: this.pouchform.value.newName,
+      emailid: this.pouchform.value.newEmail
+
+    }
+
+    
+    this.pouchdb.put(pouchform, function (result, error) {
+
+      console.log(result);
+
+      if (!error) {
+
+        alert("Pouch form updated successfully")
+      }
+    });
+  }
 
   getForms(searchName) {
 
@@ -95,6 +133,8 @@ export class AppComponent {
       name: '',
       emailid: '',
       searchName: '',
+      newName:'',
+      newEmail:''
 
     }
   )

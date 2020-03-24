@@ -42,6 +42,23 @@
   </tr>
 </table>
 
+
+<br>
+
+<button *ngIf="result && result.length>0" (click)="enableUpdate()"> Edit above record</button>
+
+
+<div *ngIf="editEnabled">
+
+<label>New Name</label>
+  <input formControlName="newName" />
+  <br>
+  <label>New Email</label>
+  <input formControlName="newEmail"/>
+
+  <button (click)="update()">Update</button>
+</div>
+
 </form>
 
 
